@@ -5,7 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-----------fontawesome CDN-------------------------->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!--------------Alpine CDN------------------------->
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -14,16 +18,40 @@
         <div><!--content wrapper-->
             <div class="w-full p-1 bg-gray-900">
                 <div class="container mx-auto p-4 flex flex-wrap"><!--LOgo-->
-                    <div class="w-1/4 self-center"><a href="#home" class="text-white font-semibold text-4xl"><p>Housan</p></a></div>
-                    <div class="w-2/4 flex flex-wrap justify-center space-x-7 text-2xl"><!--nav menu-->
-                        <div class="my-auto"><a href="#home" class="p-2 text-white">Home</a></div>
-                        <div class="my-auto"><a href="#feature" class="p-2 text-white">Feature</a></div>
-                        <div class="my-auto"><a href="#product" class="p-2 text-white">Product</a></div>
-                        <div class="my-auto"><a href="#testimonia" class="p-2 text-white">Testimonial</a></div>
-                        <div class="my-auto"><a href="#contact" class="p-2 text-white">Contact</a></div>
+                    <div class="w-1/2 lg:w-1/6 2xl:w-1/4 lg:self-center"><a href="#home" class="text-white font-semibold text-4xl"><p>Housan</p></a></div>
+                    <div class="lg:w-4/6 2xl:w-2/4 hidden lg:flex flex-wrap justify-center space-x-7 text-2xl"><!--nav menu-->
+                        <div class="my-auto"><a href="#home" class="p-2 text-white hover:text-green-500">Home</a></div>
+                        <div class="my-auto"><a href="#feature" class="p-2 text-white hover:text-green-500">Feature</a></div>
+                        <div class="my-auto"><a href="#product" class="p-2 text-white hover:text-green-500">Product</a></div>
+                        <div class="my-auto"><a href="#testimonia" class="p-2 text-white hover:text-green-500">Testimonial</a></div>
+                        <div class="my-auto"><a href="#contact" class="p-2 text-white hover:text-green-500">Contact</a></div>
                     </div>
-                    <div class="w-1/4 flex flex-wrap space-x-6 justify-end text-2xl"><!--social media links-->
-                        <div class="my-auto"><button class="bg-green-500 py-2 px-4 rounded-lg text-white">Log In</button></div>
+                    <div class="lgw-1/6 2xl:w-1/4 hidden lg:flex flex-wrap space-x-6 justify-end text-2xl"><!--social media links-->
+                        <div class="my-auto"><button class="bg-green-500 py-2 px-4 rounded-lg text-white focus:outline-none">Log In</button></div>
+                    </div>
+                    <!-------Toggle menu button--------->
+                    
+                    <div class="w-1/2 lg:hidden flex flex-wrap space-x-6 justify-end text-2xl" x-data="{ open: false }">
+                        
+                        <div  @click="open = true"><!----------------dropdown button-------------->
+                            <div class="my-auto"><button class="bg-green-500 py-2 px-4 rounded-lg text-white focus:outline-none">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                                </svg>
+                            </button></div>
+                        </div>
+                        <ul
+                            x-show="open"
+                            @click.away="open = false"
+                        >
+                        <div class="flex flex-wrap flex-col justify-center text-2xl w-screen space-y-6"><!--nav menu-->
+                            <div class="m-auto w-full text-center"><a href="#home" class="text-white hover:text-green-500">Home</a></div>
+                            <div class="my-auto w-full text-center"><a href="#feature" class="text-white hover:text-green-500">Feature</a></div>
+                            <div class="my-auto w-full text-center"><a href="#product" class="text-white hover:text-green-500">Product</a></div>
+                            <div class="my-auto w-full text-center"><a href="#testimonia" class="text-white hover:text-green-500">Testimonial</a></div>
+                            <div class="my-auto w-full text-center"><a href="#contact" class="text-white hover:text-green-500">Contact</a></div>
+                        </div>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -34,8 +62,8 @@
          <!------------------------welcome section---------------------------->
         <div class="w-full p-1 bg-gray-900" id="home">
             <div class="container mx-auto p-4 flex flex-wrap text-white my-16">
-                <div class="w-full xl:w-1/2 xl:h-96">
-                    <h1 class="font-bold text-6xl xl:text-7xl leading-30 xl:py-5 xl:w-3/4 leading-normal">Find Real Estate and Get Your Dream Space</h1>
+                <div class="w-full xl:w-1/2 xl:h-96 text-center xl:text-left">
+                    <h1 class="font-bold text-5xl xl:text-7xl xl:py-5 xl:w-3/4 leading-normal">Find Real Estate and Get Your Dream Space</h1>
                     <p class="text-lg text-gray-500">Buy or Rent Beautiful Places on any place</p>
                 </div>
                 <div class="w-full xl:w-1/2"><img class="xl:absolute xl:right-0 w-full xl:w-1/2 rounded-lg xl:rounded-tl-full mt-10 xl:mt-0" src="https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt=""></div>
@@ -88,7 +116,7 @@
                 <div class="w-4/5 mx-auto xl:w-1/2">
                     <h3 class="text-5xl font-bold xl:pt-5 leading-normal">We Provide You The Best Experience</h3>
                     <p class="pt-5 leading-7 text-gray-500">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos laudantium minima cupiditate, sapiente earum impedit expedita id, magnam culpa ipsa quisquam laborum esse? Eaque reprehenderit, sunt ullam aliquid accusantium voluptatum ipsa repellendus dolores eius quam. Debitis adipisci ut illum enim.</p>
-                    <div class="flex">
+                    <div class="flex justify-between xl:justify-start">
                         <div class="pr-7 py-7">
                             <h3 class="text-5xl font-bold pt-5 leading-4">12</h3>
                             <p class="pt-5 leading-7 text-gray-500 w-1/2">Years Experience</p>
@@ -158,12 +186,12 @@
         <!--------------------Footer Section ----------------------------->
         <div class="w-full p-1 bg-gray-100" id="contact">
             <div class="w-5/6 xl:container mx-auto bg-gray-300 my-24 mx-16 p-16 rounded-2xl">
-                <div class="flex flex-wrap items-center">
-                    <div class="xl:w-1/2">
+                <div class="flex flex-wrap items-center justify-center">
+                    <div class="xl:w-1/2 text-center xl:text-left">
                         <h5 class="text-4xl font-semibold py-2">So What Are You Waiting for ?</h5>
                         <h5 class="text-4xl font-semibold py-2">Log In To Housan Right Now !</h5>
                         <p class="text-lg text-gray-500 py-4">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias esse doloribus itaque nesciunt doloremque laborum, excepturi consequatur blanditiis. Molestiae, sapiente.</p>
-                        <div class="text-2xl mt-3 text-center">
+                        <div class="text-2xl mt-3 text-center xl:text-left">
                             <button class="bg-green-500 py-2 px-4 rounded-lg text-white m-3"><span><i class="fab fa-google-play pr-3"></i></span>Download</button>
                             <button class="bg-green-500 py-2 px-4 rounded-lg text-white m-3"><span><i class="fab fa-apple pr-3"></i></span>Download</button>
                         </div>
